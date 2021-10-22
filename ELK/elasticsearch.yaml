@@ -25,10 +25,10 @@ spec:
         - containerPort: 9200
         - containerPort: 9300
         volumeMounts:
-        - mountPath: /usr/share/elasticsearch/data
-          name: elasticsearch
+        - mountPath: /var/lib/elasticsearch/data
+          name: elasticsearchdata
       volumes:
-      - name: elasticsearch
+      - name: elasticsearchdata
         persistentVolumeClaim:
           claimName: elasrch-pv-claim
 ---
