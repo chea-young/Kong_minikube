@@ -14,7 +14,7 @@ spec:
   storageClassName: manual
   selector:
     matchLabels:
-      release: "stable"
+      app: elasticsearch
     matchExpressions:
       - {key: environment, operator: In, values: [dev]}
 ---
