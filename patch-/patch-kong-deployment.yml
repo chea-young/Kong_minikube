@@ -1,0 +1,12 @@
+spec:
+  template:
+    spec:
+      containers:
+        - name; proxy
+          env:
+            - name: KONG_STREAM_LISTEN
+              value: "0.0.0.0:11111, 0.0.0.0:22222"
+          ports:
+            - containerPort: 11111
+              name: postgres-listen
+              protocol: TCP

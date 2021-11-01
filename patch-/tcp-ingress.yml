@@ -1,0 +1,12 @@
+apiVersion: configuration.konghq.com/v1betal
+king: TCPIngress
+metadata:
+  name: my-app
+  annotations:
+    kubernetes.io/ingress.class: kong
+spec:
+  rules:
+  - port: 11111
+    backend:
+      serviceName: my-app
+      servicePort: 5432

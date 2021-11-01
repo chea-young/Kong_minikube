@@ -1,0 +1,6 @@
+spec:
+  ports:
+    - name: postgres-listen
+      port: 11111
+      protocol: TCP
+      targetPort: 11111
