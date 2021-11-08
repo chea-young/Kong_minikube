@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: file-log-test
+  namespace: kong
+config: 
+  path: /tmp/file.log
+  reopen: true
+plugin: file-log

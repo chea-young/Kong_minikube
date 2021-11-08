@@ -1,0 +1,1 @@
+## curl -i -H "Host: example.com" $PROXY_IP/file_test/sample
