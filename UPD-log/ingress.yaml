@@ -1,0 +1,22 @@
+echo "
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name:  udp-log-ingress
+  annotations:
+    konghq.com/plugins: file-log-test
+
+spec:
+  ingressClassName: kong
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /udp_test
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name:  echo
+            port:
+              number: 80
+" | kubectl apply -f - -n kong

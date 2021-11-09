@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: udp-log-test
+config: 
+  host: 10.103.29.148
+  port: 8080
+  timeout: 10000
+plugin: udp-log
