@@ -1,7 +1,7 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongPlugin
 metadata:
-  name: file-log-test
+  name: file-log-plugin
   namespace: kong
 config: 
   path: /tmp/log/file.log
