@@ -1,0 +1,18 @@
+echo "
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /test_route
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: http-log-svc
+            port:
+              number: 100
+" | kubectl apply -f -
