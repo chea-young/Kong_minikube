@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: http-log-plugin-osp
+config:
+  content_type: application/json
+  http_endpoint: http://192.168.63.100:5000/v3/auth/tokens
+  method: POST
+plugin: http-log
