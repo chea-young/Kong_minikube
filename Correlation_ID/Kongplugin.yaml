@@ -1,0 +1,9 @@
+echo "
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: request-id
+config:
+  header_name: my-request-id, Kong-Request-ID
+plugin: correlation-id
+" | kubectl apply -f - -n kong
