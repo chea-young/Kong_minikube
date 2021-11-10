@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: http-log-plugin
+config:
+  http_endpoint: https://mockbin.org/bin/be18e939-5dfa-41c5-bdff-aff1dfc0c860
+  method: POST
+plugin: http-log

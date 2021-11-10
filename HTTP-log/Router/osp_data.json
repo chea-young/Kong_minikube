@@ -1,0 +1,26 @@
+{
+    "auth": {
+    "identity": {
+    "methods": ["password"],
+    "password": {
+    "user": {
+    "domain": {
+    "name": "default"
+    },
+    "name": "admin",
+    "password": "cone@234"
+    }
+    }
+    },
+    "scope": {
+    "project": {
+    "domain": {
+    "name": "default"
+    },
+    "name": "admin"
+    }
+    }
+    }
+    }
+
+

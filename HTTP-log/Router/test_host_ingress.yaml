@@ -2,9 +2,9 @@ echo "
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: http-log-ingress-osp
+  name: http-log-ingress
   annotations:
-    konghq.com/plugins: http-log-plugin-osp
+    konghq.com/plugins: http-log-plugin-osp, request-id
 spec:
   ingressClassName: kong
   rules:
@@ -17,4 +17,4 @@ spec:
             name: echo
             port:
               number: 80
-" | kubectl apply -f - -n kong
+" | kubectl apply -f -
