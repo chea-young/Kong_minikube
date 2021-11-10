@@ -8,7 +8,6 @@ $ kubectl get svc kong-proxy -n kong -o yaml | grep -i healthCheckNodePort // �
 // 출력은 이와 비슷하게 나와야 한다.
 
 $ curl localhost:30924/healthz // /healthz는 앤드포인트를 가져오는데 사용
-
 ```
 
 - 정리하기

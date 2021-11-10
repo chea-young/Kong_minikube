@@ -1,0 +1,60 @@
+echo "
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: routing-osp-ingress
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /osp/1000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 1000
+      - path: /osp/2000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 2000
+      - path: /osp/3000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 3000
+      - path: /osp/4000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 4000
+      - path: /osp/5000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 5000
+      - path: /osp/6000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 6000
+      - path: /osp/7000
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: routing-osp-svc
+            port:
+              number: 7000
+" | kubectl apply -f - -n kong
