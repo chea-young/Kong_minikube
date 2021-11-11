@@ -1,0 +1,14 @@
+echo "
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: request-transformer-example
+config: 
+  add:
+    headers:
+      hi: hihi
+  replace:
+    headers:
+      hi: hihi
+plugin: request-transformer
+" | kubectl apply -f - -n kong

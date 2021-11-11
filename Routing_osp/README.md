@@ -20,3 +20,14 @@ service/echo patched
  - 서비스에 추가 가능!
 
  link: https://docs.konghq.com/kubernetes-ingress-controller/2.0.x/guides/using-kongingress-resource/#main
+
+
+
+ ```
+{
+    "paths": ["/users/\d+/profile", "/following"]
+}
+ ```
+
+ - \d+ 어느 숫자던지 간의 매핑
+ - https://docs.konghq.com/gateway-oss/2.6.x/proxy/#introduction

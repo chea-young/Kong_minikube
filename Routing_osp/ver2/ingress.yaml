@@ -1,0 +1,21 @@
+# kubectl patch -n kong ingress request-transformer-ingress -p '{"metadata":{"annotations":{"konghq.com/strip-path":"true"}}}' 
+echo "
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: request-transformer-ingress
+  annotations:
+    konghq.com/plugins: forward-proxy-example
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /osp2
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: request-transformer-svc
+            port:
+              number: 80
+" | kubectl apply -f - -n kong

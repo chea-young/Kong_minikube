@@ -1,0 +1,12 @@
+echo "
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: forward-proxy-example
+config: 
+  proxy_host: 192.168.63.100
+  proxy_port: 5000
+  proxy_scheme: http
+  https_verify: false
+plugin: forward-proxy
+" | kubectl apply -f - -n kong
