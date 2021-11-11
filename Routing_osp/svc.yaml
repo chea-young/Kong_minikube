@@ -31,10 +31,10 @@ spec:
     name: port6000
     protocol: TCP
     targetPort: 6000
-  - port: 7000
-    name: port7000
+  - port: 8774
+    name: port8774
     protocol: TCP
-    targetPort: 7000
+    targetPort: 8774
   selector:
     app: routing-osp
 
@@ -77,6 +77,6 @@ subsets:
   - addresses:
       - ip: 192.168.63.100
     ports:
-      - port: 7000
-        name: port7000
+      - port: 8774
+        name: port8774
 " | kubectl apply -f - -n kong

@@ -2,8 +2,8 @@
 
 $ kubectl create deployment source-ip-app --image=k8s.gcr.io/echoserver:1.4 -n kong
 
-$ kubectl patch svc kong-proxy -n kong -p '{"spec":{"externalTrafficPolicy":"Local"}}'
-$ kubectl get svc kong-proxy -n kong -o yaml | grep -i healthCheckNodePort // 변경 확인
+$ kubectl patch svc kong-proxy -n kong -p '{"spec":{"externalTrafficPolicy":"Local"}}' #defalut 는 Cluster
+$ kubectl get svc kong-proxy -n kong -o yaml | grep -i healthCheckNodePort // 변경 확인 ->Local일 때만 존재
 // healthCheckNodePort: 30924 
 // 출력은 이와 비슷하게 나와야 한다.
 
