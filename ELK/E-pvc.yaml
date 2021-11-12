@@ -1,0 +1,36 @@
+echo "
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: elasrch-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: manual
+  selector:
+    matchLabels:
+      release: "stable"
+    matchExpressions:
+      - {key: environment, operator: In, values: [dev]}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasrch-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/elasticsearch/data"
+    
+" | kubectl apply -f - -n kong

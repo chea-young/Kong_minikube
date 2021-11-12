@@ -1,3 +1,4 @@
+echo "
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,6 +24,13 @@ spec:
         ports:
         - containerPort: 9200
         - containerPort: 9300
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: elasticsearch
+      volumes:
+      - name: elasticsearch
+        persistentVolumeClaim:
+          claimName: elasrch-pv-claim
 ---
 apiVersion: v1
 kind: Service
@@ -45,3 +53,4 @@ spec:
   selector:
     app: elasticsearch
   type: NodePort
+" | kubectl apply -f - -n kong
