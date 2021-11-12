@@ -1,3 +1,4 @@
+echo "
 apiVersion: v1
 kind: Service
 metadata:
@@ -58,3 +59,4 @@ spec:
               fieldRef:
                 fieldPath: status.podIP
         resources: {}
+" | kubectl apply -f - -n test

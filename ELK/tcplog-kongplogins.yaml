@@ -1,0 +1,11 @@
+echo "
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: tcp-kong-k
+config: 
+  host: 106.251.236.2 
+  port: 8080
+  tls: false
+plugin: tcp-log
+" | kubectl apply -f - --namespace kong
