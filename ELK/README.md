@@ -53,10 +53,7 @@ $ kubectl logs –f log-manual-5c95bd7497-ldblg
 - 확인 시 "No Available Connections” to the Elasticsearch instance endpoint with the URL http://elasticsearch:9200/." 가 나와도 문제가 되지 않는다.
 
 [root@control-plane ELK]#  kubectl expose deployment log-manual --type NodePort --port 5044 -n kong
-
 service/log-manual exposed
-
-
 
 ### 참고사이트: 
 - https://lahuman.github.io/kubernetes-logging/

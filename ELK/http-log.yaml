@@ -1,0 +1,12 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: http-log-plugin
+  annotations:
+    kubernetes.io/ingress.class: kong
+  labels:
+    global: \"true\"
+config: 
+  http_endpoint: http://192.168.50.160:31269/
+  method: POST
+plugin: http-log
