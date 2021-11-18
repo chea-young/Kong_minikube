@@ -1,5 +1,4 @@
 echo "
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -7,16 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
   resources:
     requests:
-      storage: 8Gi
+      storage: 4Gi
   storageClassName: manual
-  selector:
-    matchLabels:
-      app: elasticsearch
-    matchExpressions:
-      - {key: environment, operator: In, values: [dev]}
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -31,6 +24,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/elasticsearch/data"
-    
+    path: "/tmp/hostpath-provisioner/kong/data-elasticsearch"
 " | kubectl apply -f - -n kong

@@ -1,0 +1,51 @@
+echo "
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  namespace: kong
+  labels:
+    app: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: elasticsearch:7.8.0
+        env:
+        - name: discovery.type
+          value: "single-node"
+        ports:
+        - containerPort: 9200
+        imagePullPolicy: Always
+        volumeMounts:
+        - mountPath: /var/lib/elasticsearch/data
+          name: elasticsearchdata
+      volumes:
+      - name: elasticsearchdata
+        persistentVolumeClaim:
+          claimName: elasrch-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: kong
+  name: elasticsearch
+spec:
+  ports:
+    - port: 9200
+      targetPort: 9200
+      protocol: TCP
+      name: http
+      nodePort: 30560
+  selector:
+    app: elasticsearch
+  type: NodePort
+" | kubectl apply -f - -n kong
