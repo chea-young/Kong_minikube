@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
+      storage: 10Gi
   storageClassName: manual
 ---
 apiVersion: v1
