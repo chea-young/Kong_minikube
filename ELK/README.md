@@ -31,7 +31,7 @@ content-length: 558
 $kubectl create deployment kib-manual --image kibana:7.8.0 -n kong
 
 
-kubectl set env deployments/kib-manual -n kong ELASTICSEARCH_HOSTS=http://$(minikube ip):30482
+kubectl set env deployments/kib-manual -n kong ELASTICSEARCH_HOSTS=http://$(minikube ip):30560
 
 kubectl expose deployment kib-manual --type NodePort --port 5601 -n kong # 서비스 생성 키바나
 

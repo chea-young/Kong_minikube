@@ -4,6 +4,34 @@
 
 `curl $PROXY_IP/osp/5000/v3/auth/tokens -X POST --header 'Content-Type: application/json' --data @osp_data.json -i`
 
+curl $PROXY_IP/osp/5000/v3/auth/tokens -X POST \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"auth": {
+		"identity": {
+			"methods": ["password"],
+			"password": {
+				"user": {
+					"domain": {
+						"name": "default"
+					
+					"name": "admin",
+					"password": "cone@234"
+				}
+			}
+		},
+		"scope": {
+			"project": {
+				"domain": {
+					"name": "default"
+				},
+				"name": "admin"
+			}
+		}
+	}
+}'
+
+
 
 - `kubectl patch -n echo service echo -p '{"metadata":{"annotations":{"konghq.com/path":"/api"}}}'`
     - 해당 서비스는 쓰는 ingress는 /api/URL이 된다.
