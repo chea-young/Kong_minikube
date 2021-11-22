@@ -1,5 +1,5 @@
 ----E
-## `kubectl appiy -f E.yaml -n kong`
+## `kubectl appiy -f elasticsearch.yaml -n kong`
 
 `$curl http://$(minikube ip):30482 # 30005: svc/es-manual port`
 
