@@ -1,4 +1,3 @@
-echo "
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -8,7 +7,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 5Gi
   storageClassName: manual
 ---
 apiVersion: v1
@@ -20,9 +19,8 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: "/tmp/hostpath-provisioner/kong/data-elasticsearch"
-" | kubectl apply -f - -n kong

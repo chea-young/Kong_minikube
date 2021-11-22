@@ -1,3 +1,4 @@
+echo  "
 apiVersion: configuration.konghq.com/v1
 kind: KongClusterPlugin
 metadata:
@@ -10,3 +11,4 @@ config:
   http_endpoint: http://192.168.50.160:31269/
   method: POST
 plugin: http-log
+" | kubectl apply -f - -n kong
