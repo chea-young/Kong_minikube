@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: konga-svc
+  namespace: kong
+spec:
+  type: NodePort
+  ports:
+  - name: kong-proxy
+    port: 1337
+    targetPort: 1337
+    nodePort: 30330
+    protocol: TCP
+  selector:
+    app: konga
