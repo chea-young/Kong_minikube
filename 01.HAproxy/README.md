@@ -13,11 +13,15 @@ haproxy -f /etc/haproxy/haproxy.cfg -c
 
 systemctl restart haproxy
 
+#확인
+netstat -an | grep ":80"
+
+firewall-cmd --reload
+firewall-cmd --list-all
 ```
 
-
 ## haproxy 
-#### 1경우
+#### 1 경우
 [https://m.blog.naver.com/wideeyed/221856790984]
 `acl <aclname> <criterion>[,<converter>] [flags] [operator] [<pattern>] ...`
 
