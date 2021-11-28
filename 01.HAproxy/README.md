@@ -14,7 +14,7 @@ haproxy -f /etc/haproxy/haproxy.cfg -c
 systemctl restart haproxy
 
 #확인
-netstat -an | grep ":80"
+watch -d "netstat -an | grep \":30081\""
 
 firewall-cmd --reload
 firewall-cmd --list-all
@@ -45,3 +45,17 @@ backend be_etc
 ```
 - path_beg 옵션은 prefix match로 URL의 접두사가 일치하는지만 검사
 
+
+```
+frontend https_frontend
+    ...
+    acl is_websocket path_beg /
+    acl is_websocket hdr(Upgrade) -i WebSocket
+    acl is_websocket hdr_beg(Host) -i ws
+    use_backend websockets if is_websocket
+```
+hdr(Upgrade) -i WebSocket
+- Upgrade 헤더가 포함되어 있다면 WebSocket 오퍼레이터를 지정
+
+acl is_websocket hdr_beg(Host) -i ws
+- hdr_beg(Host)는 요청 Host가 ws로 시작할 경우
