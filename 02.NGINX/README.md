@@ -53,3 +53,26 @@ proxy_set_header Connection "upgrade";
 # 3. 받는 대상 서버(WAS)
 proxy_set_header Host $host;
 ```
+
+
+```
+	    proxy_http_version 1.1;		
+		proxy_set_header	Upgrade		$http_upgrade;
+		proxy_set_header	Connection	$connection_upgrade;
+		proxy_set_header	Host		$host;
+
+        # 클라이어트 요청 본문의 버퍼링을 비활성화 
+        ##-> 활성화 시 프록시 서버에 요청을 보내기 전에 전체 요청 본문을 클라이언트에서 읽는다. 
+        ##-> 비활성화 시 요청 본문이 수신되는 즉시 프록시로 전송
+		proxy_request_buffering  off; # add 
+		proxy_set_header         X-Real-IP          $remote_addr;  
+		proxy_set_header         X-Forwarded-Host   $host; # add
+		proxy_set_header         X-Forwarded-Server $host;  # add
+		proxy_set_header         X-Forwarded-Proto  $scheme;  # add ->  클라이언트가 로드 밸런서 연결에 사용한 프로토콜(HTTP 또는 HTTPS)을 식별하는데 도움을 줌
+		proxy_set_header         X-Forwarded-For    $proxy_add_x_forwarded_for; # L7 연동하고, ProxyPass를 사용하는 경우 L7과 웹 서버를 거치는 IP 주소를 X-Forwarded-For 헤더에 저장해야하며, 이를 통해 해당 헤더의 첫번째 값으로 요청을 보낸 클라이언트의 IP 주소를 알 수 있음.
+
+		# 기존 주석
+		#proxy_set_header Sec-WebSocket-Protocol $arg_protocol; 3 delete
+		#proxy_set_header Authorization "Bearer $arg_access_token"; # delete
+		#proxy_set_header Origin "*"; # delete
+```
