@@ -1,7 +1,6 @@
 ### /etc/nginx/conf.d/default.conf
 - 컨테이너 안의 해당 위치에 존재
 
-
 ```
 #add test part
 server {
