@@ -45,7 +45,6 @@ backend be_etc
 ```
 - path_beg 옵션은 prefix match로 URL의 접두사가 일치하는지만 검사
 
-
 ```
 frontend https_frontend
     ...
