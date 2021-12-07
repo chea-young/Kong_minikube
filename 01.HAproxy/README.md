@@ -5,6 +5,23 @@ https://engineeringcode.tistory.com/125 # 설치 참고
 
 ```
 
+# INSTALLATION
+```
+yum install gcc openssl openssl-devel pcre-static pcre-devel systemd-devel
+ yum install haproxy -y
+ nano /etc/haproxy/haproxy.cfg
+
+# 설정파일 유효성 검사
+haproxy -f /etc/haproxy/haproxy.cfg
+
+systemctl daemon-reload
+systemctl start haproxy
+systemctl enable haproxy
+
+# haproxy 사용 포트 확인
+netstat -an | grep ":8888"
+```
+
 # nano /etc/haproxy/haproxy.cfg
 ```
 # 유효성 검사
