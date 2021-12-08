@@ -1,9 +1,28 @@
 ## Logstash
+- 기본 형태
+    - 적어도 하나의 입력와 출력이 존재해야 함.
+```
+input {
+ file {
+   path => ["/home/logstash/testdata.log"]
+   sincedb_path => "/dev/null"
+   start_position => "beginning"
+  }
+}
+filter {
+}
+output {
+  stdout {
+    codec => rubydebug
+  }
+}
+```
 
 - 필터링하기
 headers / response / client_ip / request
 
-### 필터링 문법 - grok 패턴
+### 필터링 문법
+#### grok 패턴
 - `.`: 사용자가 지정한 문자 뒤에 오는 어떠한 문자든지 하나만 매칭
 - `?`: 사용자가 지정한 문자열의 마지막 글자가 있거나 없을때에 대해 매칭, 마지막 문자와 동일한 문자가 있으면 지정한 문자 전체를 매칭하고 없다면 그 이전까지만 매칭
 - `+`: 사용자가 지정한 문자열의 마지막글자가 연속으로 나열된만큼 매칭
@@ -12,3 +31,8 @@ headers / response / client_ip / request
 - `|`: OR 연산자입니다. 지정한 문자열들에 대해 일치하는것과 매칭
 - `()?`: 괄호 내부의 데이터는 부분집합처럼 사용
 - `[]`: 대괄호 내부의 문자들을 매칭합니다. - (대시) 기호가 문자 사이에 있을경우 범위를 나타낼 수 있음.
+
+#### json 필터
+- `source`: 입력 원본 소스 데이터 저장
+- `add_filed` : 고정값 필드 추가하거나 소스 데이터 필드 내용 추가
+- `remove_filed`: 필드 제거
