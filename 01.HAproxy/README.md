@@ -36,6 +36,10 @@ firewall-cmd --reload
 firewall-cmd --list-all
 ```
 
+kubeadm join 133.186.251.21:6443 --token yd9eim.hh4kf1h0ckjpa1eu \
+        --discovery-token-ca-cert-hash sha256:34357a0a88c894ee87f5c80287bb4dff21e5e35d0600f3bf1a911769ac622af1
+
+
 ## haproxy 
 #### 1 경우
 [https://m.blog.naver.com/wideeyed/221856790984]
