@@ -41,7 +41,8 @@ sudo systemctl status kubelet
 # 실행중이 아닐 경우
 sudo systemctl start kubelet
 
-
+# pv 와 pvc는 storageClassName로 연결
+storageClassName: standard
 
 
 kubeadm init   --apiserver-advertise-address=192.168.75.150  --pod-network-cidr=10.244.0.0/16

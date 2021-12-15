@@ -1405,6 +1405,7 @@ spec:
       resources:
         requests:
           storage: 1Gi
+      storageClassName: standard
 ---
 apiVersion: batch/v1
 kind: Job

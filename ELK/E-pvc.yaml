@@ -9,6 +9,7 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: manual
+
 ---
 apiVersion: v1
 kind: PersistentVolume
