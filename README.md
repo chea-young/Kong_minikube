@@ -1,15 +1,18 @@
 # Kong_minikube
 
-1. [x] Minikube 설치하기 
-2. [x] Kong 설치하기 
-3. [X] Kong UI (Konga 설치하기) 
+1. [] Minikube 설치하기 
+2. [] Kong 설치하기 
+3. [] Kong UI (Konga 설치하기) 
     - kong-admin 설치하기
     - konga 설치하기
-4. [X] 라우터 테스트 
-5. [X] Plugin 테스트   
-6. [X] 라우트 분기 테스트 
-7. [X] req/res 로그를 엘라스틱 서치로 테스트 하기 
-8. [X] req 메세지에서 요청자 정보 확인하기
+4. [] 라우터 테스트 
+5. [] Plugin 테스트   
+6. [] 라우트 분기 테스트 
+    - 유료버전을 쓰거나
+    - Customize 된 plugin 사용시 가능(하지만 일정한 kong 버전에서만 사용 가능)
+8. [] Elasticsearch, Kibana, logstash 연결하기 
+9. [] req/res 로그를 엘라스틱 서치로 테스트 하기 
+10. [] req 메세지에서 요청자 정보 확인하기
 
 ## Ingress using Kong
  - Dynamic configuration
